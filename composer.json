@@ -1,0 +1,44 @@
+{
+  "name": "tarikweiss/apple-maps-server-api-client",
+  "description": "A PHP-based reference-implementation for the Apple Maps Server API. Uses tweaks to enhance usage with PHP.",
+  "type": "library",
+  "keywords": [
+    "apple",
+    "apple maps",
+    "api client"
+  ],
+  "homepage": "https://github.com/tarikweiss/https-github.com-tarikweiss-apple-maps-server-api-client",
+  "license": "MIT",
+  "authors": [
+    {
+      "email": "kontakt@tarikweiss.de",
+      "name": "Tarik Weiss"
+    }
+  ],
+  "minimum-stability": "stable",
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": false
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "\\AppleMapsServerApiClient\\": "src/",
+      "\\AppleMapsServerApiClient\\Tests\\": "tests/phpunit/"
+    }
+  },
+  "require": {
+    "php": "^8.1",
+    "ext-openssl": "*",
+    "firebase/php-jwt": "^6",
+    "json-mapper/json-mapper": "^2",
+    "psr/http-client": "*",
+    "psr/http-factory": "*",
+    "php-http/discovery": "^1.17"
+  },
+  "require-dev": {
+    "guzzlehttp/guzzle": "7.*",
+    "phpstan/phpstan": "^2.1",
+    "phpunit/phpunit": "*"
+  }
+}
