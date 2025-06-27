@@ -141,7 +141,7 @@ class AppleMapsClient
      */
     public function reverseGeocode(ReverseGeocodeQuery $reverseGeocodeQuery): PlaceResults
     {
-        $queryData = ['loc' => $reverseGeocodeQuery->loc];
+        $queryData = ['loc' => $reverseGeocodeQuery->loc->searchLocation];
 
         if (null !== $reverseGeocodeQuery->lang) {
             $queryData['lang'] = $reverseGeocodeQuery->lang->lang;
