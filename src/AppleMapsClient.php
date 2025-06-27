@@ -22,6 +22,7 @@ use AppleMapsServerApiClient\Query\GeocodeQuery;
 use AppleMapsServerApiClient\Query\PlaceAlternateIdsQuery;
 use AppleMapsServerApiClient\Query\PlaceByIdQuery;
 use AppleMapsServerApiClient\Query\PlaceQuery;
+use AppleMapsServerApiClient\Query\ReverseGeocodeQuery;
 use AppleMapsServerApiClient\Query\SearchAutocompleteQuery;
 use AppleMapsServerApiClient\Query\SearchQuery;
 use AppleMapsServerApiClient\Util\MappingUtil;
@@ -138,15 +139,12 @@ class AppleMapsClient
      * @since Apple Maps Server API 1.2+
      * @see   https://developer.apple.com/documentation/applemapsserverapi/-v1-reversegeocode
      */
-    public function reverseGeocode(
-        SearchLocation $loc,
-        ?Lang          $lang = null,
-    ): PlaceResults
+    public function reverseGeocode(ReverseGeocodeQuery $reverseGeocodeQuery): PlaceResults
     {
-        $queryData = ['loc' => $loc];
+        $queryData = ['loc' => $reverseGeocodeQuery->loc];
 
-        if (null !== $lang) {
-            $queryData['lang'] = $lang->lang;
+        if (null !== $reverseGeocodeQuery->lang) {
+            $queryData['lang'] = $reverseGeocodeQuery->lang->lang;
         }
 
         $response = $this->requestAuthenticated(
