@@ -23,8 +23,12 @@
   },
   "autoload": {
     "psr-4": {
-      "\\AppleMapsServerApiClient\\": "src/",
-      "\\AppleMapsServerApiClient\\Tests\\": "tests/phpunit/"
+      "AppleMapsServerApiClient\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AppleMapsServerApiClient\\Tests\\": "tests/phpunit/"
     }
   },
   "require": {
