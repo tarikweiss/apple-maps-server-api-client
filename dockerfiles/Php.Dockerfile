@@ -1,12 +1,12 @@
-FROM php:8.1 AS base
+FROM php:8.1-bullseye AS base
 
-RUN apt update && apt install tzdata -y
-
+ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ="Europe/Berlin"
 
-RUN apt update && apt upgrade -y && apt install -y software-properties-common
-
-RUN apt install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    tzdata \
+    software-properties-common \
+    libzip-dev \
     zip \
     nano \
     grep \
@@ -14,7 +14,8 @@ RUN apt install -y \
     libonig-dev \
     libgd3 \
     zlib1g-dev \
-    libpng-dev
+    libpng-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-install xml
 RUN docker-php-ext-install intl
@@ -23,6 +24,7 @@ RUN docker-php-ext-install gd
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install opcache
+RUN docker-php-ext-install zip
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 WORKDIR /app
