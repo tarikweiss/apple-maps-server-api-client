@@ -34,7 +34,7 @@
   "require": {
     "php": "^8.1",
     "ext-openssl": "*",
-    "firebase/php-jwt": "^6",
+    "firebase/php-jwt": "^7",
     "json-mapper/json-mapper": "^2",
     "psr/http-client": "*",
     "psr/http-factory": "*",
